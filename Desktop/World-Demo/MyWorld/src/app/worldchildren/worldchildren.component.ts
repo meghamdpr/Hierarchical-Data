@@ -2,6 +2,7 @@ import { Component, OnInit , OnChanges, SimpleChange, SimpleChanges} from '@angu
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContinentserviceService } from '../continentservice.service';
 
+
 @Component({
   selector: 'app-worldchildren',
   templateUrl: './worldchildren.component.html',
@@ -13,6 +14,8 @@ export class WorldchildrenComponent implements OnInit{
   continents:any;
   countries:any;
   link:any;
+  // item:any;
+  // item_parent:any;
 
   constructor(private worldservice:ContinentserviceService,private route:ActivatedRoute, private router: Router) { }
  
@@ -43,4 +46,14 @@ export class WorldchildrenComponent implements OnInit{
   set continent(value){
     this.mycontinent=value;
   }
+
+
+  // delete(item: any,item_parent: any){
+  //   console.log(item);
+  //   console.log(item_parent);
+  //   this.worldservice.deleteservice(item,item_parent).subscribe((data: any)=>{
+  //     console.log(data)});
+  //  alert("deleted successfully");
+  // //  this.router.navigate(['World'],{relativeTo:this.route});
+  // }
 }

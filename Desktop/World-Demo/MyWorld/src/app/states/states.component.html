@@ -23,9 +23,30 @@
             <button mat-button >{{country}}</button>
         </div>
     </div>-->
-    <mat-card [hidden]="isDisplay">
+    <!-- <mat-card [hidden]="isDisplay">
         <ul *ngFor="let state of states.children">
           <li>{{state}}</li>
         </ul>
-      </mat-card>
+      </mat-card> -->
+    <div id="scrollbar"> 
+    <table class="table table-striped w-auto">
+      <!--Table head-->
+      <!-- <thead>
+          <tr>
+              <th>State Name</th>
+              <th>Action</th>
+          </tr>
+      </thead> -->
+      <!--Table head-->
+  
+      <!--Table body-->
+      <tbody>
+          <tr class="table-info" *ngFor="let state of states.children">
+              <td>{{state}}</td>
+              <td><button mat-raised-button color="warn" (click)="delete(state,states.place)">delete</button></td>
+              <!-- <td><i class="fa fa-trash-o"></i></td> -->
+          </tr>
+       </tbody>
+  </table>
+</div>
 </body>

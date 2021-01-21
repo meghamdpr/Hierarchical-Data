@@ -12,14 +12,16 @@ export class ContinentserviceService {
 
   springEndpoint: string | undefined;
   postEndpoint: string | undefined;
+  deleteEndpoint: string;
   
   constructor(private http:HttpClient) {
-    this.springEndpoint='http://localhost:8080/api/v1/getbyplace/';
-    this.postEndpoint='http://localhost:8080/api/v1/continent';
+    this.springEndpoint='/api/v1/getbyplace';
+    this.postEndpoint='/api/v1/continent';
+    this.deleteEndpoint='/api/v1/delete';
    }
 
   getContinents(){
-    return this.http.get("http://localhost:8080/api/v1/getbyplace/World");
+    return this.http.get("/api/v1/getbyplace/World");
   }
 
   getcountries(link:string){
@@ -37,4 +39,10 @@ export class ContinentserviceService {
     console.log(region.parent);
     return this.http.post(`${this.postEndpoint}/${region.parent}`,region,{responseType:'text' as 'json'});
   }
+
+  deletetheregion(place: any,parent: any){
+    return this.http.delete(`${this.deleteEndpoint}/${place}/${parent}`,{responseType: 'text'});
+  }
+
+
 }

@@ -34,6 +34,7 @@
               <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                 <a class="nav-link active" routerLink="/AddRegion" routerLinkActive="active">Add Region</a>
+                <a class="nav-link active" routerLink="/DeleteRegion" routerLinkActive="active">Delete Region</a>
               </div>
             </div>
           </div>
@@ -81,6 +82,7 @@
       <div class="box" >
         <p>{{link}}</p>
         <button class="btn blue btn-floating halfway-fab" (click)="getcountriesdata(link)">+</button>
+        <!-- <button mat-raised-button color="warn" (click)="getcountriesdata(link)">+</button> -->
       </div>
       </div>
     </div>

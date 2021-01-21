@@ -1,7 +1,7 @@
 .worldclass{
     color: black;
     background-size: cover;
-    height:500px;
+    height:700px;
     text-align: center;
     font-size: large;
     font-family: 'Courier New', Courier, monospace;
@@ -86,8 +86,8 @@
 }
 
 .box{
-    width:102px;
-    height: 100px;
+    width:106px;
+    height: 106px;
     background:rgba(0, 0, 0, 0.5);
     margin: 20px;
     box-sizing: border-box;

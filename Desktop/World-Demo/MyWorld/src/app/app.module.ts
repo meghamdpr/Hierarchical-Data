@@ -19,6 +19,8 @@ import { StatesComponent } from './states/states.component';
 import { AddregionComponent } from './addregion/addregion.component';
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { DeleteComponent } from './delete/delete.component';
 
 const appRoutes: Routes=[
 ]
@@ -31,6 +33,7 @@ const appRoutes: Routes=[
     ContinentchildrenComponent,
     StatesComponent,
     AddregionComponent,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ const appRoutes: Routes=[
     SimplebarAngularModule,
     MatMenuModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
 
   ],
   providers: [ContinentserviceService],

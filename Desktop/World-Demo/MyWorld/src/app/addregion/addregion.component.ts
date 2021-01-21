@@ -62,6 +62,8 @@ export class AddregionComponent implements OnInit {
   }
 
   onChangeContinent(continentid:any){
+    console.log(continentid);
+    console.log(continentid.target);
     console.log(continentid.target.value);
     this.worldservice.getcountries(continentid.target.value)
     .subscribe((data)=>this.countries=data);

@@ -24,6 +24,14 @@ public class WorldServiceImpl implements WorldService{
   }
 
   @Override
+  public ArrayList<String> get_children(String place) {
+
+    WorldModel worldModel=worldRepository.findByPlace(place);
+    return worldModel.getChildren();
+  }
+
+
+  @Override
   public void post_continent(WorldModel worldModel,String parent) {
 
     WorldModel worldModel1=worldRepository.findByPlace(parent);
@@ -67,6 +75,7 @@ public class WorldServiceImpl implements WorldService{
 
   @Override
   public void delete_data(String place) {
+
     worldRepository.deleteByPlace(place);
   }
 
@@ -78,5 +87,13 @@ public class WorldServiceImpl implements WorldService{
     worldModel.setChildren(children);
     worldRepository.save(worldModel);
   }
+
+//  @Override
+//  public void delete(ArrayList<String> children) {
+//    for(int i=0;i!=children.size();i++) {
+//      WorldModel worldModel = worldRepository.findByPlace(children.get(i));
+//
+//    }
+//  }
 
 }
