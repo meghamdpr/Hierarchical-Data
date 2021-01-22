@@ -18,6 +18,7 @@ export class DeleteComponent implements OnInit {
 
   public input:any;
   public input1:any;
+  selecteditem:any;
   continents={};
   countries:any;
   message: void;
@@ -94,6 +95,7 @@ export class DeleteComponent implements OnInit {
   
 
   onChangeCategory(item:any){
+    this.selecteditem=item;
     console.log(item);
     if(item=='continent'){
       this.input1.children=["World","null"];
@@ -110,6 +112,12 @@ export class DeleteComponent implements OnInit {
     console.log(item);
     this.worldservice.getcountries(item)
     .subscribe((data)=>this.input=data);
+    console.log(this.input);
+  }
+
+  onChangeCountry(item:any){
+    console.log(item);
+    this.worldservice.getstates(item).subscribe((data)=>this.input=data);
     console.log(this.input);
   }
 

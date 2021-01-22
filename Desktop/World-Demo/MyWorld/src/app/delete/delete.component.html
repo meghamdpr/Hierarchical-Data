@@ -39,7 +39,6 @@
     <!-- <section>
         <div class="container contact">
             <form (ngSubmit)="deletetheregion()" #deleteForm="ngForm" >
-                {{deleteForm.value | json}}
                 <div class="row">
                     <div class="col-md-3">
                         <div class="contact-info">
@@ -52,9 +51,9 @@
                     <div class="col-md-9">
                         <div class="contact-form">
                             <div class="form-group">
-                                <label class="control-label col-sm-4" for="category">Select Category</label>
-                                <select class="form-control" id="category" name="category" [(ngModel)]="region.category" #category="ngModel" (change)="onChangeCategory($event)">
-                                    <option>Select Category</option>
+                                <label class="control-label col-sm-4">Select Category</label>
+                                <select formControlName="category" class="form-control" (change)="onChangeCategory($event.target.value)">
+                                  <option value="">Select Category</option>
                                   <option value="continent">Add Continent</option>
                                   <option value="country">Add Country</option>
                                   <option value="state">Add State</option>
@@ -63,14 +62,14 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-4" for="parent">Select Parent
                                 </label >
-                                   <select class="form-control" id="parent" name="parent" [(ngModel)]="region.parent"  #parent="ngModel" (change)="onChangeContinent($event)">
-                                     <option value="{{continent}}" *ngFor="let continent of continents.children">{{continent}}</option>
-                                   </select>
+                                <select formControlName="parent" class="form-control" (change)="onChangeContinent($event.target.value)">
+                                 <option *ngFor="let continent of input1.children" >{{continent}}</option>
+                                </select>
                             </div>
                             <div class="form-group" *ngIf="selecteditem == 'state'"  >
                                 <label class="control-label col-sm-4" for="parent">Select Country</label >
-                                <select class="form-control" id="parent" name="parent" [(ngModel)]="region.parent" #parent="ngModel">
-                                  <option  value="{{country}}" *ngFor="let country of countries.children">{{country}}</option>
+                                <select formControlName="parent" class="form-control" (change)="onChangeContinent($event.target.value)">
+                                  <option  *ngFor="let country of input.children" value="{{country}}">{{country}}</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -113,25 +112,27 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <label class="control-label col-sm-4" >Select Category</label>
+                    <label class="control-label col-sm-4" >Select Parent</label>
                     <select formControlName="parent" class="form-control" (change)="onChangeContinent($event.target.value)">
                       <option *ngFor="let continent of input1.children" value="{{continent}}">{{continent}}</option>
                     </select>
                   </div>
-                  <!-- <div class="form-group" *ngIf="item == 'state'"  >
-                    <select formControlName="parent" class="form-control" (change)="onChangeContinent($event.target.value)">
+                  <div class="form-group" *ngIf="selecteditem == 'state'"  >
+                    <label class="control-label col-sm-4" >Select Country</label>
+                    <select formControlName="parent" class="form-control" (change)="onChangeCountry($event.target.value)">
                       <option  *ngFor="let country of input.children" value="{{country}}">{{country}}</option>
                     </select>
-                  </div> -->
+                  </div>
                   <div class="form-group">
-                    <label class="control-label col-sm-4" >Select Category</label>
+                    <label class="control-label col-sm-4" >Select Place</label>
                     <select formControlName="place" class="form-control">
-                      <option *ngFor="let country of input.children" value="{{country}}">{{country}}</option>
+                      <option *ngFor="let place of input.children" value="{{place}}">{{place}}</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Delete</button>
+                        <button type="submit" class=
+                        "btn btn-default">Delete</button>
                     </div>
                 </div>
                 </form>

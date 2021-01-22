@@ -57,7 +57,7 @@
                         <div class="contact-form">
                             <div class="form-group">
                                 <label class="control-label col-sm-4" for="category">Select Category</label>
-                                <select class="form-control" id="category" name="category" [(ngModel)]="region.category" #category="ngModel" (change)="onChangeCategory($event)">
+                                <select class="form-control" id="category" name="category" [(ngModel)]="region.category" #category="ngModel" (change)="onChangeCategory($event)" [value]="continent">
                                     <option>Select Category</option>
                                   <option value="continent">Add Continent</option>
                                   <option value="country">Add Country</option>
